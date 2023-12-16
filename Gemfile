@@ -58,3 +58,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'sendgrid-ruby'
 
 gem "resend", "~> 0.8.1"
+
+gem "whenever"
