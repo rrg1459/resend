@@ -6,6 +6,11 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# Load dotenv only in development or test environment
+if ['development', 'test'].include? ENV['RAILS_ENV']
+  Dotenv::Railtie.load
+end
+
 module Email
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -20,16 +25,3 @@ module Email
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
-
-module VariablesDeAmbiente
-  class Application < Rails::Application
-    config.before_configuration do
-      env_file = Rails.root.join("config", 'variables_de_ambiente.yml').to_s
-      if File.exists?(env_file)
-        YAML.load_file(env_file)[Rails.env].each do |key, value|
-          ENV[key.to_s] = value
-        end # end YAML.load_file
-      end # end if File.exists?
-    end # end config.before_configuration
-  end # end class
-end # end module
