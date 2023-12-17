@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby RUBY_VERSION
 
+gem "dotenv-rails", "~> 2.8", :groups => [:development, :test]
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7', '>= 6.1.7.6'
 # Use sqlite3 as the database for Active Record
@@ -60,3 +62,4 @@ gem 'sendgrid-ruby'
 gem "resend", "~> 0.8.1"
 
 gem "whenever"
+
