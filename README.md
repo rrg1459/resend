@@ -1,3 +1,7 @@
 # README
 
-Tiny app for use gem "resend".
+Tiny app for use gems
+
+* resend
+* whenever
+* dotenv-rails
